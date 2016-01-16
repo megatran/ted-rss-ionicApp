@@ -1,0 +1,1 @@
+An app that shows RSS entries from TED
