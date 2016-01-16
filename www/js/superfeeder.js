@@ -74,7 +74,8 @@ window.superfeedr = {
 					content: i.summary,
 					url: json.status.feed,
 					thumbnail: i.image,
-					publishedDate: new Date(i.published)
+					//Angular displays date correctly with ms only so we have to multiply the returned i.published (in sec) by 1000
+					publishedDate: new Date(i.published * 1000)
 				});
 			});
 			console.log(googleFeedObject);
