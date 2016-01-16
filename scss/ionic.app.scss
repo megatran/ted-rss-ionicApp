@@ -4,14 +4,12 @@ in ionic's _variables.scss file.
 
 */
 
-$positive: #E62B1E;
-$font-family-serif: 'Georgia', serif !default
-
-
+$positive: 					#E62B1E;
+$font-family-serif: 		'Georgia', serif !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-@import "www/scss/style.css";
+@import "www/scss/style.scss";

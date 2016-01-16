@@ -1,10 +1,13 @@
 var app = angular.module('tedrssapp.controllers', []);
 
-app.controller('FeedCtrl', function ($scope, FeedService) {
+app.controller('FeedCtrl', function ($scope, $ionicLoading, FeedService) {
 	console.log("Loading FeedCtrl");
 
+	$ionicLoading.show({template:'Loading feed...'});
 	$scope.feed = FeedService;
-	$scope.feed.loadFeed();
+	$scope.feed.loadFeed().then(function(){
+		$ionicLoading.hide();
+	});
 
 	$scope.doRefresh = function () {
 		$scope.feed.loadFeed().then(function () {
