@@ -10,13 +10,13 @@ app.controller('FeedCtrl', function ($scope, $ionicLoading, FeedService) {
 	});
 
 	$scope.doRefresh = function () {
-		$scope.feed.loadFeed().then(function () {
+		FeedService.loadFeed().then(function () {
 			$scope.$broadcast('scroll.refreshComplete');
 		});
 	};
 });
 
-app.controller('PostCtrl', function ($scope, $stateParams, $window, FeedService) {
+app.controller('PostCtrl', function ($scope, $stateParams, $window, $cordovaSocialSharing, FeedService) {
 	console.log("Loading PostCtrl");
 	console.log($stateParams);
 	$scope.postId = $stateParams.id;
@@ -24,6 +24,7 @@ app.controller('PostCtrl', function ($scope, $stateParams, $window, FeedService)
 
 	$scope.share = function () {
 		console.debug("Sharing post");
+		$cordovaSocialSharing.share($scope.post.contentSnippet, $scope.post.title, $scope.post.thumbnail, $scope.post.link)
 	};
 
 	$scope.readMore = function () {
